@@ -38,6 +38,16 @@ const IndexScreen = ({ navigation }) => {
   );
 };
 
+IndexScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerRight: () => (
+      <TouchableOpacity onPress={() => navigation.navigate("Create")}>
+        <AntDesign name="plus" style={styles.header} color="black" />
+      </TouchableOpacity>
+    ),
+  };
+};
+
 const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
@@ -52,6 +62,10 @@ const styles = StyleSheet.create({
   },
   icon: {
     fontSize: 24,
+  },
+  header: {
+    fontSize: 24,
+    marginRight: 10,
   },
 });
 
