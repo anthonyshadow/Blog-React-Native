@@ -12,8 +12,8 @@ const ShowScreen = ({ navigation }) => {
 
   return (
     <View>
-      <Text>{blogPost.title}</Text>
-      <Text>{blogPost.content}</Text>
+      <Text style={styles.title}>{blogPost.title}</Text>
+      <Text style={styles.content}>{blogPost.content}</Text>
     </View>
   );
 };
@@ -36,6 +36,19 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 24,
     marginRight: 10,
+  },
+  title: {
+    textAlign: "center",
+    fontSize: 24,
+    marginBottom: 15,
+  },
+  content: {
+    fontSize: 18,
+    borderWidth: 1,
+    borderColor: "black",
+    marginBottom: 15,
+    padding: 5,
+    margin: 5,
   },
 });
 
