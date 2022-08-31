@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 import { Context } from "../context/BlogContext";
 
 const ShowScreen = ({ navigation }) => {
@@ -12,10 +13,30 @@ const ShowScreen = ({ navigation }) => {
   return (
     <View>
       <Text>{blogPost.title}</Text>
+      <Text>{blogPost.content}</Text>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+ShowScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerRight: () => (
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate("Edit", { id: navigation.getParam("id") })
+        }
+      >
+        <AntDesign name="edit" style={styles.header} color="black" />
+      </TouchableOpacity>
+    ),
+  };
+};
+
+const styles = StyleSheet.create({
+  header: {
+    fontSize: 24,
+    marginRight: 10,
+  },
+});
 
 export default ShowScreen;
